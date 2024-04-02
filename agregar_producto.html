@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+</head>
+<body>
+    <h2>Agregar Producto</h2>
+    <form action="./php/insertar_producto.php" method="POST" enctype="multipart/form-data">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        
+        <label for="precio">Precio:</label><br>
+        <input type="number" id="precio" name="precio" step="0.01" required><br><br>
+        
+        <label for="disponibles">Disponibles:</label><br>
+        <input type="number" id="disponibles" name="disponibles" required><br><br>
+        
+        <label for="categoria">Categoría:</label><br>
+        <select id="categoria" name="categoria" required>
+            <option value="">Selecciona una categoría</option>
+            <option value="Electrónica">Electrónica</option>
+            <option value="Ropa">Ropa</option>
+            <option value="Hogar">Hogar</option>
+            <!-- Agrega más opciones de categorías según sea necesario -->
+        </select><br><br>
+        
+        <label for="descripcion">Descripción:</label><br>
+        <textarea id="descripcion" name="descripcion" required></textarea><br><br>
+        
+        <label for="imagen">Imagen:</label><br>
+        <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
+        
+        <input type="submit" value="Agregar Producto">
+    </form>
+</body>
+</html>
