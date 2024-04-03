@@ -26,6 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->rowCount() == 1) {
             // Iniciar sesión
             session_start();
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            $_SESSION["id_usuario"] = $usuario["id"];
             $_SESSION["email"] = $email;
             // Redirigir al usuario a la página principal de la tienda u otra página de su elección
             header("Location: tienda.php");
