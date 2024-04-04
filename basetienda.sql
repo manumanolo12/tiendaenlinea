@@ -1,5 +1,26 @@
 CREATE DATABASE IF NOT EXISTS IEU;
 USE IEU;
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE `usuarios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `creado_en` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+);
+
+DROP TABLE IF EXISTS `productos`;
+CREATE TABLE `productos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `disponibles` int NOT NULL,
+  `descripcion` text,
+  `imagen` varchar(255) DEFAULT NULL,
+  `categoria` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
 
 DROP TABLE IF EXISTS `carrito`;
 CREATE TABLE `carrito` (
@@ -41,25 +62,7 @@ CREATE TABLE `detalle_compra` (
   CONSTRAINT `fk_detalle_compra_producto` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`)
 );
 
-DROP TABLE IF EXISTS `productos`;
-CREATE TABLE `productos` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
-  `disponibles` int NOT NULL,
-  `descripcion` text,
-  `imagen` varchar(255) DEFAULT NULL,
-  `categoria` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
 
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE `usuarios` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `creado_en` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-);
+
+
 
